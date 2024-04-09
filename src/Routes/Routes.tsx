@@ -1,10 +1,11 @@
 import React from 'react';
-import {Navigate, Route, Routes} from 'react-router-dom';
+import {Navigate, Route, Routes, useNavigate} from 'react-router-dom';
 import {LoginCallback, useOktaAuth} from '@okta/okta-react';
 import {AuthWrapper} from './Router/PrivateRouter';
 
 export const AppRoutes: React.FC = () => {
   const {oktaAuth} = useOktaAuth();
+  const navigate = useNavigate();
   console.log(oktaAuth.myaccount.addEmail);
   return (
     <Routes>
@@ -12,19 +13,23 @@ export const AppRoutes: React.FC = () => {
       <Route
         path='/home'
         element={
-          <AuthWrapper>
-            <>
-              <h1>Home</h1>
-            </>
-          </AuthWrapper>
+          <>
+            <h1>Home</h1>{' '}
+            <button onClick={() => navigate('/protected')}>
+              {' '}
+              Click to go to Protected{' '}
+            </button>
+          </>
         }
       />
       <Route
         path='/protected'
         element={
-          <>
-            <h1>Protected</h1>
-          </>
+          <AuthWrapper>
+            <>
+              <h1>Protected</h1>
+            </>
+          </AuthWrapper>
         }
       />
       <Route path='/login/callback' element={<LoginCallback />} />
