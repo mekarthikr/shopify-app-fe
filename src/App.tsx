@@ -1,15 +1,32 @@
 import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
 
+import {AppRoutes} from './Routes/Routes';
 import './App.css';
+import {Security} from '@okta/okta-react';
+import OktaAuth, {toRelativeUrl} from '@okta/okta-auth-js';
+import {OktaConfig} from './service/auth/oktaConfig';
 
-function App() {
-	return (
-		<div className='App'>
-			<h1 className='text-3xl font-bold underline text-red-600'>
-				Simple React Typescript Tailwind Sample
-			</h1>
-		</div>
-	);
-}
+export const App = () => {
+  const oktaAuth = new OktaAuth(OktaConfig.oidc);
+  const restoreOriginalUri = (
+    _oktaAuth: OktaAuth,
+    originalUri: string
+  ): void => {
+    window.location.replace(
+      toRelativeUrl(
+        originalUri !== '' ? originalUri : '/',
+        window.location.origin
+      )
+    );
+  };
+  return (
+    <BrowserRouter>
+      <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+        <AppRoutes />
+      </Security>
+    </BrowserRouter>
+  );
+};
 
 export default App;
