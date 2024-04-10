@@ -12,9 +12,11 @@ export const AuthWrapper: React.FC<{children: ReactNode}> = ({children}) => {
         window.location.origin
       );
       oktaAuth.setOriginalUri(originalUri);
-      oktaAuth.signInWithRedirect().catch(() => ({}));
+      oktaAuth.signInWithRedirect();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [oktaAuth, !(authState === null), authState?.isAuthenticated]);
+  }, [authState?.isAuthenticated, oktaAuth]);
+  if (!authState?.isAuthenticated) {
+    return <>{'Redirecting to Login Page....'}</>;
+  }
   return <>{children}</>;
 };

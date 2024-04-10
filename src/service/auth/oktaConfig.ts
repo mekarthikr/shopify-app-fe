@@ -1,10 +1,10 @@
-import GlobalVariables from '../../variables';
+import {config} from '../../config';
 
 export const OktaConfig = {
   oidc: {
-    clientId: GlobalVariables.Okta.AppId,
-    issuer: `https://${GlobalVariables.Okta.Domain}.com/oauth2/default`,
-    redirectUri: GlobalVariables.Okta.RedirectUrl,
+    clientId: config.okta.appId,
+    issuer: `https://${config.okta.domain}.com/oauth2/default`,
+    redirectUri: config.okta.redirectUri,
     scopes: ['openid', 'profile', 'email'],
     pkce: true,
   },

@@ -9,6 +9,7 @@ import {OktaConfig} from './service/auth/oktaConfig';
 
 export const App = () => {
   const oktaAuth = new OktaAuth(OktaConfig.oidc);
+  // const {oktaAuth} = useOkta();
   const restoreOriginalUri = (
     _oktaAuth: OktaAuth,
     originalUri: string

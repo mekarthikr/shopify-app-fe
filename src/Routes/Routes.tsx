@@ -1,12 +1,11 @@
 import React from 'react';
 import {Navigate, Route, Routes, useNavigate} from 'react-router-dom';
-import {LoginCallback, useOktaAuth} from '@okta/okta-react';
-import {AuthWrapper} from './Router/PrivateRouter';
+import {LoginCallback} from '@okta/okta-react';
+import {AuthWrapper} from '../components/AuthWrapper/AuthWrapper';
+import {RegisterPage} from '../components/Register/register';
 
 export const AppRoutes: React.FC = () => {
-  const {oktaAuth} = useOktaAuth();
   const navigate = useNavigate();
-  console.log(oktaAuth.myaccount.addEmail);
   return (
     <Routes>
       <Route index={true} element={<Navigate to={'/home'} />} />
@@ -32,6 +31,7 @@ export const AppRoutes: React.FC = () => {
           </AuthWrapper>
         }
       />
+      <Route path='/register' element={<RegisterPage />} />
       <Route path='/login/callback' element={<LoginCallback />} />
     </Routes>
   );
