@@ -4,7 +4,7 @@ import { Toaster } from 'react-hot-toast'
 import { Security } from '@okta/okta-react'
 import OktaAuth, { toRelativeUrl } from '@okta/okta-auth-js'
 
-import { AppRoutes } from './routes/Routes'
+import { AppRoutes } from './routes/routes'
 import { OktaConfig } from './service/auth/okta'
 import './App.css'
 

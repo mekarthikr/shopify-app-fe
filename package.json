@@ -71,7 +71,7 @@
 	},
 	"husky":{
 		"hooks":{
-			"lint check": "lint:fix && git add ."
+			"lint-check": "lint:fix && git add ."
 		}
 	}
 }
