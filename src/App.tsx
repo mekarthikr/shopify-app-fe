@@ -1,15 +1,15 @@
-import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast'
+import { Security } from '@okta/okta-react'
+import OktaAuth, { toRelativeUrl } from '@okta/okta-auth-js'
 
-import {AppRoutes} from './Routes/Routes';
-import './App.css';
-import {Security} from '@okta/okta-react';
-import OktaAuth, {toRelativeUrl} from '@okta/okta-auth-js';
-import {OktaConfig} from './service/auth/oktaConfig';
+import { AppRoutes } from './routes/Routes'
+import { OktaConfig } from './service/auth/okta'
+import './App.css'
 
-export const App = () => {
-  const oktaAuth = new OktaAuth(OktaConfig.oidc);
-  // const {oktaAuth} = useOkta();
+export const App: React.FC = () => {
+  const oktaAuth = new OktaAuth(OktaConfig.oidc)
   const restoreOriginalUri = (
     _oktaAuth: OktaAuth,
     originalUri: string
@@ -19,15 +19,19 @@ export const App = () => {
         originalUri !== '' ? originalUri : '/',
         window.location.origin
       )
-    );
-  };
-  return (
-    <BrowserRouter>
-      <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
-        <AppRoutes />
-      </Security>
-    </BrowserRouter>
-  );
-};
+    )
+  }
 
-export default App;
+  return (
+    <>
+      <Toaster />
+      <BrowserRouter>
+        <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+          <AppRoutes />
+        </Security>
+      </BrowserRouter>
+    </>
+  )
+}
+
+export default App

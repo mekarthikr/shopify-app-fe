@@ -1,22 +1,23 @@
-import {toRelativeUrl} from '@okta/okta-auth-js';
-import {useOktaAuth} from '@okta/okta-react';
-import React, {ReactNode, useEffect} from 'react';
+import { toRelativeUrl } from '@okta/okta-auth-js'
+import { useOktaAuth } from '@okta/okta-react'
+import React, { type ReactNode, useEffect } from 'react'
 
-export const AuthWrapper: React.FC<{children: ReactNode}> = ({children}) => {
-  const {oktaAuth, authState} = useOktaAuth();
+export const AuthWrapper: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const { oktaAuth, authState } = useOktaAuth()
 
   useEffect(() => {
     if (authState?.isAuthenticated === false) {
       const originalUri = toRelativeUrl(
         window.location.href,
         window.location.origin
-      );
-      oktaAuth.setOriginalUri(originalUri);
-      oktaAuth.signInWithRedirect();
+      )
+      oktaAuth.setOriginalUri(originalUri)
+      void oktaAuth.signInWithRedirect()
     }
-  }, [authState?.isAuthenticated, oktaAuth]);
-  if (!authState?.isAuthenticated) {
-    return <>{'Redirecting to Login Page....'}</>;
+  }, [authState, authState?.isAuthenticated, oktaAuth])
+
+  if (authState === null || authState.isAuthenticated === false) {
+    return <>{'Redirecting to Login Page....'}</>
   }
-  return <>{children}</>;
-};
+  return <>{children}</>
+}

@@ -1,4 +1,4 @@
-import {config} from '../../config';
+import { config } from '../../config'
 
 export const OktaConfig = {
   oidc: {
@@ -6,9 +6,9 @@ export const OktaConfig = {
     issuer: `https://${config.okta.domain}.com/oauth2/default`,
     redirectUri: config.okta.redirectUri,
     scopes: ['openid', 'profile', 'email'],
-    pkce: true,
+    pkce: true
   },
   resourceServer: {
-    messagesUrl: 'http://localhost:8000/api/messages',
-  },
-};
+    messagesUrl: 'http://localhost:8000/api/messages'
+  }
+}
