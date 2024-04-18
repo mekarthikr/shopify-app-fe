@@ -1,6 +1,8 @@
 import axios, { type AxiosInstance } from 'axios'
 import { config } from '../../config'
+
 type http = 'GET' | 'POST'
+
 class Api {
   private readonly axiosInstance: AxiosInstance
 
@@ -18,7 +20,15 @@ class Api {
     return this.axiosInstance.post(endpoint, data)
   }
 
-  public requestHandler<T>({ method, endpoint, body }: { method: http, endpoint: string, body: T }): Promise<T> {
+  public requestHandler<T>({
+    method,
+    endpoint,
+    body
+  }: {
+    method: http
+    endpoint: string
+    body: T
+  }): Promise<T> {
     switch (method) {
       case 'GET':
         return this.get(endpoint)

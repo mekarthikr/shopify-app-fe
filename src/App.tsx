@@ -5,7 +5,7 @@ import { Security } from '@okta/okta-react'
 import OktaAuth, { toRelativeUrl } from '@okta/okta-auth-js'
 
 import { AppRoutes } from './routes/routes'
-import { OktaConfig } from './service/auth/okta'
+import { OktaConfig } from './config/okta'
 import './App.css'
 
 export const App: React.FC = () => {

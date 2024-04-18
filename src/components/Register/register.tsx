@@ -13,7 +13,7 @@ interface FormData {
   agreed?: boolean
 }
 
-export const RegisterPage: React.FC = () => {
+export const Register: React.FC = () => {
   const {
     register,
     setValue,
@@ -82,7 +82,7 @@ export const RegisterPage: React.FC = () => {
 
   return (
     <div style={{ width: '70%', margin: 'auto', marginTop: 100 }}>
-      <h1 style={{ textAlign: 'center' }}>Register Now!</h1>
+      <h1 style={{ textAlign: 'center' }}>Sign Up!</h1>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field>
           <label>First Name</label>
@@ -149,7 +149,11 @@ export const RegisterPage: React.FC = () => {
             }}
           />
         </Form.Field>
-        <Button disabled={isDisabled} type='submit'>
+        <Button
+          disabled={isDisabled}
+          type='submit'
+          color='teal'
+          textAlign='center'>
           Submit
         </Button>
       </Form>
