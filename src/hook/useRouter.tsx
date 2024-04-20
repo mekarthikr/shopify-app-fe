@@ -1,5 +1,5 @@
 import { Navigate, Route } from 'react-router-dom'
-import { AuthWrapper } from '../components/authWrapper/authWrapper'
+import { AuthWrapper } from '../components/auth-wrapper/authWrapper'
 
 export interface IRouterProps {
   path: string

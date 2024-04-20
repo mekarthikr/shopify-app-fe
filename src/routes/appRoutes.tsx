@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Container } from '../components/container/container'
+import { Container } from '../components'
 import { useRouter } from '../hook/useRouter'
 import { RouteConfig } from '../config/router'
 

@@ -1,4 +1,12 @@
-import { Button, Dimmer, Grid, Header, Image, Loader } from 'semantic-ui-react'
+import {
+  Button,
+  Dimmer,
+  Grid,
+  Header,
+  Image,
+  Loader,
+  Segment
+} from 'semantic-ui-react'
 import { useOktaAuth } from '@okta/okta-react'
 import { toRelativeUrl } from '@okta/okta-auth-js'
 import { Link, useNavigate } from 'react-router-dom'
@@ -40,23 +48,25 @@ export const Signup: React.FC = () => {
     return (
       <Grid textAlign='center' style={{ height: '85vh' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 400 }}>
-          <Header
-            as='h2'
-            color='teal'
-            textAlign='center'
-            style={{
-              fontFamily: '"Roboto", sans-serif'
-            }}>
-            <Image src={Logo as unknown} /> Log-in to your account
-          </Header>
-          <Button color='teal' fluid size='large' onClick={handleLogin}>
-            Login
-          </Button>
-          <Link to={'/register'}>
-            <Button fluid size='large' style={{ marginTop: '0.1rem' }}>
-              New to us? Sign Up
+          <Segment color='teal'>
+            <Header
+              as='h2'
+              color='teal'
+              textAlign='center'
+              style={{
+                fontFamily: '"Roboto", sans-serif'
+              }}>
+              <Image src={Logo as unknown} /> Log-in to your account
+            </Header>
+            <Button color='teal' fluid size='large' onClick={handleLogin}>
+              Login
             </Button>
-          </Link>
+            <Link to={'/register'}>
+              <Button fluid size='large' style={{ marginTop: '0.5rem' }}>
+                New to us? Sign Up
+              </Button>
+            </Link>
+          </Segment>
         </Grid.Column>
       </Grid>
     )
