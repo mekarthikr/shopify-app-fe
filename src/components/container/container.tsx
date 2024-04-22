@@ -5,9 +5,9 @@ import { Footer, Header } from '../../shared'
 export const Container: React.FC = () => {
   return (
     <>
-    <Header/>
+      <Header />
       <Outlet />
-      <Footer/>
+      <Footer />
     </>
   )
 }

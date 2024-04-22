@@ -26,7 +26,11 @@ class Api {
     return this.axiosInstance.post(endpoint, data)
   }
 
-  public requestHandler<T>({ method, endpoint, body }: IRequestType<T>): Promise<T> {
+  public requestHandler<T>({
+    method,
+    endpoint,
+    body
+  }: IRequestType<T>): Promise<T> {
     switch (method) {
       case 'GET':
         return this.get(endpoint)

@@ -50,7 +50,10 @@ export const Login: React.FC = () => {
   }
   if (authState !== null && authState.isAuthenticated === false) {
     return (
-      <Grid textAlign='center' style={{ height: '85vh' }} verticalAlign='middle'>
+      <Grid
+        textAlign='center'
+        style={{ height: '85vh' }}
+        verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 400 }}>
           <Segment color='teal'>
             <Header

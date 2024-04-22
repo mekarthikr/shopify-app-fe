@@ -9,15 +9,14 @@ export const Header: React.FC = () => {
   const navigate = useNavigate()
 
   const handleLogout = (): void => {
-    void oktaAuth
-      .signOut().then(() => {
-        window.localStorage.clear()
-        navigate('/home')
-      })
+    void oktaAuth.signOut().then(() => {
+      window.localStorage.clear()
+      navigate('/home')
+    })
   }
   return (
     <>
-     <Menu inverted color='teal' style={{ margin: 0 }}>
+      <Menu inverted color='teal' style={{ margin: 0 }}>
         <Container>
           <Menu.Item as='a' header>
             <Image size='mini' src={Logo} style={{ marginRight: '1.5em' }} />
@@ -29,12 +28,17 @@ export const Header: React.FC = () => {
               <Input icon='search' placeholder='Search...' />
             </Menu.Item>
             <Menu.Item>
-            {authState === null || authState.isAuthenticated === false
-              ? <Link to={'/login'}>
-              <Button primary>Login / Signup</Button>
-            </Link>
-              : <Button onClick={handleLogout} primary>Signout</Button>
-            }
+              {authState === null || authState.isAuthenticated === false
+                ? (
+                <Link to={'/login'}>
+                  <Button primary>Login / Signup</Button>
+                </Link>
+                  )
+                : (
+                <Button onClick={handleLogout} primary>
+                  Signout
+                </Button>
+                  )}
             </Menu.Item>
           </Menu.Menu>
         </Container>

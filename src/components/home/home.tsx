@@ -3,7 +3,6 @@ import { Button, Container } from 'semantic-ui-react'
 export const Home: React.FC = () => {
   return (
     <>
-
       <div className='banner'>
         <Container>
           <div className='banner-content'>
@@ -23,7 +22,6 @@ export const Home: React.FC = () => {
         <h2>Featured Products</h2>
         {/* Add your products or other content */}
       </Container>
-
     </>
   )
 }

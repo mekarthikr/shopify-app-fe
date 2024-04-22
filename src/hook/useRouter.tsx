@@ -12,9 +12,7 @@ interface UseRouterType {
   routes: React.ReactElement[]
 }
 
-export const useRouter = (
-  routes: IRouterProps[]
-): UseRouterType => {
+export const useRouter = (routes: IRouterProps[]): UseRouterType => {
   const generateRoutes = (routes: IRouterProps[]): React.ReactElement[] => {
     return routes.map((route) => {
       let element

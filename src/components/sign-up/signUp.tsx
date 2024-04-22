@@ -27,10 +27,9 @@ export const Register: React.FC = () => {
   const [passwordMatch, setPasswordMatch] = useState<boolean>(true)
 
   const registerUser = async (data: FormData): Promise<FormData> => {
-    const response = await user.registerUser(data)
-      .catch((error) => {
-        throw error
-      })
+    const response = await user.registerUser(data).catch((error) => {
+      throw error
+    })
     return response
   }
 
@@ -55,7 +54,9 @@ export const Register: React.FC = () => {
     }
   }
 
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handlePasswordChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
     const { name, value } = e.target
     setValue(name as keyof FormData, value)
     void trigger(name as keyof FormData)

@@ -3,7 +3,9 @@ import React, { type ReactNode, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Dimmer, Loader } from 'semantic-ui-react'
 
-export const AuthWrapper: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const AuthWrapper: React.FC<{ children: ReactNode }> = ({
+  children
+}) => {
   const { authState } = useOktaAuth()
   const navigate = useNavigate()
 
