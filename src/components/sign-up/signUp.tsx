@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Checkbox, Form, Input, Segment } from 'semantic-ui-react'
 import toast from 'react-hot-toast'
-import { api } from '../../service/https/http'
+
+import { user } from '../../service/user'
 
 interface FormData {
   firstName: string
@@ -21,21 +22,12 @@ export const Register: React.FC = () => {
     trigger,
     formState: { errors }
   } = useForm<FormData>()
+
   const [isDisabled, setIsDisabled] = useState<boolean>(false)
   const [passwordMatch, setPasswordMatch] = useState<boolean>(true)
 
   const registerUser = async (data: FormData): Promise<FormData> => {
-    const response = await api
-      .requestHandler({
-        method: 'GET',
-        endpoint: 'user',
-        body: {
-          firstName: data.firstName,
-          lastName: data.lastName,
-          email: data.email,
-          password: data.password
-        }
-      })
+    const response = await user.registerUser(data)
       .catch((error) => {
         throw error
       })
@@ -63,9 +55,7 @@ export const Register: React.FC = () => {
     }
   }
 
-  const handlePasswordChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void => {
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target
     setValue(name as keyof FormData, value)
     void trigger(name as keyof FormData)
@@ -81,7 +71,7 @@ export const Register: React.FC = () => {
   }
 
   return (
-    <div style={{ backgroundColor: 'teal' }} className='block'>
+    <div style={{ backgroundColor: 'white' }} className='block'>
       <div style={{ width: '60%', margin: 'auto', padding: 100 }}>
         <Segment padded={true} color='teal' piled={false}>
           <h1 style={{ textAlign: 'center' }}>Sign Up!</h1>

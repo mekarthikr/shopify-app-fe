@@ -14,13 +14,17 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import Logo from '../../assets/image/logo/logo.png'
 
-export const Signup: React.FC = () => {
+export const Login: React.FC = () => {
   const { oktaAuth, authState } = useOktaAuth()
   const naviage = useNavigate()
 
   useEffect(() => {
     if (authState !== null && authState.isAuthenticated === true) {
-      naviage('/home')
+      if (window.localStorage.getItem('redirect-url') != null) {
+        naviage(`${window.localStorage.getItem('redirect-url') as string}`)
+      } else {
+        naviage('/home')
+      }
     }
   }, [authState, authState?.isAuthenticated])
 

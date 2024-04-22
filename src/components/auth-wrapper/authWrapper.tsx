@@ -10,7 +10,7 @@ export const AuthWrapper: React.FC<{ children: ReactNode }> = ({ children }) => 
   useEffect(() => {
     if (authState?.isAuthenticated === false) {
       window.localStorage.setItem('redirect-url', window.location.pathname)
-      navigate('/signin')
+      navigate('/login')
     }
   }, [authState, authState?.isAuthenticated])
 

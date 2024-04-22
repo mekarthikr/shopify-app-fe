@@ -8,9 +8,13 @@ export interface IRouterProps {
   index?: boolean
 }
 
+interface UseRouterType {
+  routes: React.ReactElement[]
+}
+
 export const useRouter = (
   routes: IRouterProps[]
-): { routes: React.ReactElement[] } => {
+): UseRouterType => {
   const generateRoutes = (routes: IRouterProps[]): React.ReactElement[] => {
     return routes.map((route) => {
       let element
