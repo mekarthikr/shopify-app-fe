@@ -1,15 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import toast from 'react-hot-toast'
 
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
 import App from './App'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-)
+const rootElement = document.getElementById('root')
+if (rootElement === null) {
+  toast('Something went Wrong Please')
+  throw new Error('Something went Wrong Please')
+}
 
-root.render(
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>

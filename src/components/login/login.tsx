@@ -20,8 +20,8 @@ export const Login: React.FC = () => {
 
   useEffect(() => {
     if (authState !== null && authState.isAuthenticated === true) {
-      if (window.localStorage.getItem('redirect-url') != null) {
-        naviage(`${window.localStorage.getItem('redirect-url') as string}`)
+      if (window.localStorage.getItem('redirect-url') !== null) {
+        naviage(`${window.localStorage.getItem('redirect-url')}`)
       } else {
         naviage('/home')
       }
