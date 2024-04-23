@@ -14,7 +14,7 @@ interface FormData {
   agreed?: boolean
 }
 
-export const Register: React.FC = () => {
+export const SignUp: React.FC = () => {
   const {
     register,
     setValue,
@@ -27,7 +27,12 @@ export const Register: React.FC = () => {
   const [passwordMatch, setPasswordMatch] = useState<boolean>(true)
 
   const registerUser = async (data: FormData): Promise<FormData> => {
-    const response = await user.registerUser(data).catch((error) => {
+    const response = await user.registerUser({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password
+    }).catch((error) => {
       throw error
     })
     return response

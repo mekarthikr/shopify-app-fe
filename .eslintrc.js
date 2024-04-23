@@ -33,11 +33,6 @@ module.exports = {
             group: 'external',
             position: 'before',
           },
-          {
-            pattern: '@app/**',
-            group: 'internal',
-            position: 'before',
-          },
         ],
         warnOnUnassignedImports: true,
       },

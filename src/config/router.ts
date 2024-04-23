@@ -1,10 +1,10 @@
 import { LoginCallback } from '@okta/okta-react'
 import { Container } from 'semantic-ui-react'
 import { type IRouterProps } from '../hook/useRouter'
-import { Home, Login, Protected, Register } from '../components'
+import { Home, Login, Protected, SignUp } from '../components'
 
 export const RouteConfig: IRouterProps[] = [
-  { path: '/register', component: Register, protected: false },
+  { path: '/register', component: SignUp, protected: false },
   { path: '/login/callback', component: LoginCallback },
   { path: '/', component: Container },
   { path: '/home', index: true },

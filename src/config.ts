@@ -5,6 +5,6 @@ export const config = {
     redirectUri: `${window.location.origin}/login/callback`
   },
   api: {
-    base: 'https://shopify-heroku-app-be-6c2d373e3f1f.herokuapp.com/'
+    base: 'https://shopify-app-be.vercel.app/'
   }
 }

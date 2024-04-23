@@ -20,7 +20,7 @@ export const Header: React.FC = () => {
         <Container>
           <Menu.Item as='a' header>
             <Image size='mini' src={Logo} style={{ marginRight: '1.5em' }} />
-            Sopify
+            Shopify
           </Menu.Item>
           <Menu.Item as='a'>Home</Menu.Item>
           <Menu.Menu position='right'>

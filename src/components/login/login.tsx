@@ -22,6 +22,7 @@ export const Login: React.FC = () => {
     if (authState !== null && authState.isAuthenticated === true) {
       if (window.localStorage.getItem('redirect-url') !== null) {
         naviage(`${window.localStorage.getItem('redirect-url')}`)
+        window.localStorage.removeItem('redirect-url')
       } else {
         naviage('/home')
       }
