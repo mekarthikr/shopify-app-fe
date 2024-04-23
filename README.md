@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6cd9e90d-6e27-45ad-a7b6-ea0a8eb3a2d0/deploy-status)](https://app.netlify.com/sites/shopify-react-fe/deploys)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with
